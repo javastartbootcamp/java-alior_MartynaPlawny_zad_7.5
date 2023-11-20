@@ -27,10 +27,8 @@ public class Main {
             Main.readFile("countries.csv");
             codeFromUser = scanner.nextLine();
             mapOfCountries.get(codeFromUser).showInfo();
-        } catch (NoSuchElementException ex) {
-            System.out.println("Brak pliku countries.csv.");
         } catch (IOException ex) {
-            System.out.println("Ogólny problem z odczytem pliku countries.csv.");
+            System.out.println("Brak pliku countries.csv.");
         } catch (NullPointerException ex) {
             System.out.println("Kod kraju " + codeFromUser + " nie został znaleziony.");
         }
