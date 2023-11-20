@@ -7,6 +7,7 @@ import java.io.IOException;
 
 public class Main {
     static Map<String, Country> mapOfCountries = new HashMap<>();
+
     // nie zmieniaj nic w main
     public static void main(String[] args) throws IOException {
 
@@ -25,7 +26,7 @@ public class Main {
         System.out.println("Podaj kod kraju, o którym chcesz zobaczyć informacje:");
         try {
             codeFromUser = scanner.nextLine();
-        } catch (NoSuchElementException ex){
+        } catch (NoSuchElementException ex) {
             System.out.println("Brak pliku countries.csv.");
         }
 
@@ -75,7 +76,7 @@ public class Main {
         while ((nextLine = reader.readLine()) != null) {
             listOfLines = List.of(nextLine.split(";"));
             mapOfCountries.put(listOfLines.get(0), new Country(listOfLines.get(0), listOfLines.get(1),
-                    Double. parseDouble(listOfLines.get(2))));
+                    Double.parseDouble(listOfLines.get(2))));
         }
         reader.close();
     }
