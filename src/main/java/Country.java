@@ -21,9 +21,7 @@ public class Country {
         return population;
     }
 
-    @Override
-    public String toString() {
+    public void showInfo() {
         System.out.printf("%s (%s) ma %.0f ludności.", countryName, code, population);
-        return null;
     }
 }

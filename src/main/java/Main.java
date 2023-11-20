@@ -12,32 +12,31 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         Scanner scanner = new Scanner(System.in);
-
         Main main = new Main();
 
-//        writeFile();
-        readFile("countries.csv");
         main.run(scanner);
-
     }
 
     void run(Scanner scanner) {
         String codeFromUser = "";
         System.out.println("Podaj kod kraju, o którym chcesz zobaczyć informacje:");
-        try {
-            codeFromUser = scanner.nextLine();
-        } catch (NoSuchElementException ex) {
-            System.out.println("Brak pliku countries.csv.");
-        }
 
         try {
-            mapOfCountries.get(codeFromUser).toString();
-        } catch (Exception e) {
+            // opcja do samodzielnego nadpisania zawartości pliku
+//            Main.writeFile();
+            Main.readFile("countries.csv");
+            codeFromUser = scanner.nextLine();
+            mapOfCountries.get(codeFromUser).showInfo();
+        } catch (NoSuchElementException ex) {
+            System.out.println("Brak pliku countries.csv.");
+        } catch (IOException ex) {
+            System.out.println("Ogólny problem z odczytem pliku countries.csv.");
+        } catch (NullPointerException ex) {
             System.out.println("Kod kraju " + codeFromUser + " nie został znaleziony.");
         }
     }
 
-// opcja do samodzielnego nadpisania zawartości pliku
+    //opcja do samodzielnego nadpisania zawartości pliku
 //    static void writeFile() {
 //        String fileName = "countries.csv";
 //        try (
